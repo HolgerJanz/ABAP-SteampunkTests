@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Test for Deprecated Statements</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZD024272TOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZD024272</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZD024272_DEPRECATED_TEST</FUNCNAME>
+     <SHORT_TEXT>Test for Deprecated Statements</SHORT_TEXT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>MY_OLD_EXCP</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>MY_OLD_EXCP</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

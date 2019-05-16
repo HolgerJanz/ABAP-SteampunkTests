@@ -25,25 +25,27 @@ class zcl_d024272_dynsql_demo implementation.
 
     me->initTable(  ).
 
-    data(tabName) = 'zd024272_tab1'.
+    data(tabName) = `zd024272_tab1`.
 
+    out->write( `FROM:` ).
     select * from (tabName)
       into table @resultSelect.
     out->write(  resultSelect ).
 
-    data(whereClause) = 'key1 = 42 and key2 = 0'.
+    out->write( `FROM WHERE:` ).
+    data(whereClause) = `key1 = 42 and key2 = 0`.
     select * from (tabName)
       where (whereClause)
       into table @resultSelect.
-    out->write(  resultSelect ).
+    out->write( resultSelect ).
 
     try.
       clear excp.
-      whereClause = 'key1 = 42 and key2 = @sy-subrc'.
+      whereClause = `key1 = 42 and key2 = @sy-subrc`.
       select * from (tabName)
         where (whereClause)
         into table @resultSelect.
-      catch cx_sy_dynamic_osql_error into excp.
+      catch cx_sy_dynamic_osql_semantics into excp.
         out->write( 'WHERE OK: Expected Exception' ).
     endtry.
     if excp is initial.
