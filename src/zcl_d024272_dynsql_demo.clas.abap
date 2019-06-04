@@ -10,7 +10,7 @@ class zcl_d024272_dynsql_demo definition
 
   private section.
 
-    methods initTable .
+    methods inittable .
 endclass.
 
 
@@ -20,43 +20,43 @@ class zcl_d024272_dynsql_demo implementation.
   method if_oo_adt_classrun~main.
 
     data:
-      resultSelect type table of zd024272_tab1,
-      excp type ref to cx_root.
+      resultselect type table of zd024272_tab1,
+      excp         type ref to cx_root.
 
-    me->initTable(  ).
+    me->inittable(  ).
 
-    data(tabName) = `zd024272_tab1`.
-
-    out->write( `FROM:` ).
-    select * from (tabName)
-      into table @resultSelect.
-    out->write(  resultSelect ).
-
-    out->write( `FROM WHERE:` ).
-    data(whereClause) = `key1 = 42 and key2 = 0`.
-    select * from (tabName)
-      where (whereClause)
-      into table @resultSelect.
-    out->write( resultSelect ).
-
-    try.
-      clear excp.
-      whereClause = `key1 = 42 and key2 = @sy-subrc`.
-      select * from (tabName)
-        where (whereClause)
-        into table @resultSelect.
-      catch cx_sy_dynamic_osql_semantics into excp.
-        out->write( 'WHERE OK: Expected Exception' ).
-    endtry.
-    if excp is initial.
-        out->write( 'WHERE ERROR: Expected Exception' ).
-    endif.
+    data(tabname) = `zd024272_tab1`.
 
 
+* select from
+    select * from (tabname)
+      into table @resultselect.
+
+* select where
+    data(whereclause) = `key1 = 42 and key2 = 0`.
+    select * from (tabname)
+      where (whereclause)
+      into table @resultselect.
+
+* select on
+    data(my_loc_var) = 'foo'.
+    select *
+      from  zd024272_tab1 as x join zd024272_tab1 as y
+      on ('x~key1 = y~key2 and y~comp1 = @my_loc_var')
+      into table @data(resultjoin).
+
+    out->write( resultjoin ).
+
+* select having
+    select comp1
+      from zd024272_tab1
+      group by comp1
+      having ('comp1 = @my_loc_int')
+      into table @data(resulthaving).
 
   endmethod.
 
-  method initTable.
+  method inittable.
     delete from zd024272_tab1.
     insert zd024272_tab1 from table @( value #(
        ( key1 = 13 comp1 = 'Test13' )
