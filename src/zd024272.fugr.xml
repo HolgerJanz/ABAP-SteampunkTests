@@ -2,7 +2,7 @@
 <abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
-   <AREAT>Test for Deprecated Statements</AREAT>
+   <AREAT>Test for ABAP in SAP CP</AREAT>
    <INCLUDES>
     <SOBJ_NAME>LZD024272TOP</SOBJ_NAME>
     <SOBJ_NAME>SAPLZD024272</SOBJ_NAME>
@@ -20,6 +20,44 @@
       <RSFDO>
        <PARAMETER>MY_OLD_EXCP</PARAMETER>
        <KIND>X</KIND>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZD024272_FM_001</FUNCNAME>
+     <SHORT_TEXT>Test for Dynamic Call</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>OUT</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>REF TO IF_OO_ADT_CLASSRUN_OUT</TYP>
+       <REF_CLASS>X</REF_CLASS>
+      </RSIMP>
+     </IMPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>OUT</PARAMETER>
+       <KIND>P</KIND>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZD024272_FM_002</FUNCNAME>
+     <SHORT_TEXT>Test for Dynamic Call</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>OUT</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>REF TO IF_OO_ADT_CLASSRUN_OUT</TYP>
+       <REF_CLASS>X</REF_CLASS>
+      </RSIMP>
+     </IMPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>OUT</PARAMETER>
+       <KIND>P</KIND>
        <INDEX> 001</INDEX>
       </RSFDO>
      </DOCUMENTATION>
