@@ -20,10 +20,9 @@ class zcl_d024272_rfc implementation.
 
     out->write(  'start rfc' ).
 
-    data(func) = 'DB_COMMIT'.
-    call function func destination space.
+    call function 'DB_COMMIT' destination space.
 
-    call function func destination 'S55'.
+    call function 'DB_COMMIT' destination 'S55'.
 
     out->write(  'end rfc' ).
 
