@@ -47,18 +47,24 @@ class zcl_d024272_dyn_where_itab implementation.
   endmethod.
 
   method select.
+
     loop at me->itab into me->itabLine where (whereClause).
       insert me->itabLine into table resultItab.
     endloop.
+
   endmethod.
 
   method delete.
+
     delete me->itab where (whereClause).
+
   endmethod.
 
   method modify.
     me->itabLine-value = newValue.
+
     modify me->itab from me->itabLine transporting value where (whereClause).
+
   endmethod.
 
 endclass.

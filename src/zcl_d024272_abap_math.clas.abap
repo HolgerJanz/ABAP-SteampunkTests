@@ -24,7 +24,8 @@ class zcl_d024272_abap_math implementation.
 
     data(d1) = conv decfloat34( '1.2001' ) - conv decfloat34( '0.0001' ).
     data(d2) = cl_abap_math=>normalize(  d1 ).
-    out->write( |normalize decfloat { d1 }({ cl_abap_math=>get_scale( d1 ) }/{ cl_abap_math=>get_number_of_digits( d1 ) }) = { d2 }({ cl_abap_math=>get_scale( d2 ) }/{ cl_abap_math=>get_number_of_digits( d2 ) })| ).
+    out->write( |normalize decfloat { d1 }({ cl_abap_math=>get_scale( d1 ) }/{ cl_abap_math=>get_number_of_digits( d1 ) }) = | &
+                |{ d2 }({ cl_abap_math=>get_scale( d2 ) }/{ cl_abap_math=>get_number_of_digits( d2 ) })| ).
 
   endmethod.
 
