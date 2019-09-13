@@ -1,4 +1,4 @@
-class zcl_d024272_stream_loc_string definition
+class zcl_d024272_stream_string definition
   public
   final
   create public .
@@ -14,7 +14,7 @@ endclass.
 
 
 
-class zcl_d024272_stream_loc_string implementation.
+class zcl_d024272_stream_string implementation.
 
   method if_oo_adt_classrun~main.
 

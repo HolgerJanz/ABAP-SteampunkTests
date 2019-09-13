@@ -3,10 +3,10 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <VSEOCLASS>
-    <CLSNAME>ZCL_D024272_STREAM_LOC_STRING</CLSNAME>
+    <CLSNAME>ZCL_D024272_STREAM_STRING</CLSNAME>
     <VERSION>1</VERSION>
     <LANGU>E</LANGU>
-    <DESCRIPT>ABAP SCP 1911 Streams and Locators for Strings</DESCRIPT>
+    <DESCRIPT>ABAP SCP 1911 Streams for Strings</DESCRIPT>
     <EXPOSURE>2</EXPOSURE>
     <STATE>1</STATE>
     <CLSFINAL>X</CLSFINAL>
