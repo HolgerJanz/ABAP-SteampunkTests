@@ -1,0 +1,48 @@
+<?sap.transform simple?>
+<tt:transform
+  xmlns:tt="http://www.sap.com/transformation-templates"
+  xmlns:df="http://www.sap.com/abapxml/types/defined"
+  xmlns:dd="http://www.sap.com/abapxml/types/dictionary"
+  xmlns:tp="http://www.sap.com/abapxml/types/type-pool/abap" >
+
+  <tt:type name="struct">
+    <tt:node name="c1" type="I"/>
+    <tt:node name="c2" type="I"/>
+  </tt:type>
+
+  <tt:root name="r1" type="D"/>
+  <tt:root name="r2" type="dd:char255"/>
+  <tt:root name="r3" type="tp:abap_bool"/>
+  <tt:root name="r4" type="df:struct"/>
+
+  <tt:variable name="ovar" ref-type="zcl_d024272_xslt_st"/>
+  <tt:variable name="result"/>
+
+  <tt:template>
+    <tt:create-object var="ovar" />
+    <x0>
+      <x1>
+        <tt:value ref="r1" />
+      </x1>
+      <x2>
+        <tt:value ref="r2" />
+      </x2>
+      <x3>
+        <tt:value ref="r3" />
+      </x3>
+      <x4 tt:ref='r4'>
+        <tt:call-method s-name="method01" var="ovar">
+          <tt:with-parameter name="x" ref="c1"/>
+          <tt:with-parameter name="y" var="result"/>
+        </tt:call-method>
+        <c1 tt:ref='c1'>
+          <tt:write var="result" />
+        </c1>
+        <c2 tt:ref='c2'>
+          <tt:value/>
+        </c2>
+      </x4>
+    </x0>
+  </tt:template>
+
+</tt:transform>
