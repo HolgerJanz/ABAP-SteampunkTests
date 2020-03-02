@@ -7,10 +7,11 @@ class zcl_d024272_xml definition
     interfaces if_oo_adt_classrun.
     interfaces if_serializable_object.
 
+    data x type i value 42.
+
   protected section.
 
   private section.
-    data x type i value 42.
 
 endclass.
 
@@ -24,6 +25,10 @@ class zcl_d024272_xml implementation.
     data(r) = new zcl_d024272_xml( ).
     call transformation ID source root = r result xml data(xml).
     out->write( conv->convert( xml ) ).
+
+    out->write( 'Example XML Deserialize' ).
+    call transformation ID source xml xml result root = r.
+    out->write( r->x ).
 
   endmethod.
 
