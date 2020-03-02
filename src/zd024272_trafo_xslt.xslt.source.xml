@@ -1,0 +1,25 @@
+<xsl:transform version="1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:sap="http://www.sap.com/sapxsl"
+  xmlns:f="fct"
+>
+
+<xsl:template match="/">
+  <x>
+
+    <sap:call-external class="CL_ABAP_MATH" method="NORMALIZE">
+      <sap:callvalue param="VAL" select="'1.2E+2'"/>
+      <sap:callvariable param="NORM_VAL" name="v1"/>
+    </sap:call-external>
+
+    <xsl:value-of select="$v1"/>
+
+  </x>
+</xsl:template>
+
+<sap:external-function name="f:norm" kind="class" class="CL_ABAP_MATH"  method="NORMALIZE">
+  <sap:argument param="'3.14'" />
+  <sap:result param="NORM_VAL" type="number"/>
+</sap:external-function>
+
+</xsl:transform>
